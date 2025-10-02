@@ -1,2 +1,6 @@
-naas_data_product
-pyvis==0.2.1
+fastapi==0.104.1
+uvicorn==0.24.0
+requests==2.31.0
+python-multipart==0.0.6
+streamlit==1.28.0
+click==8.1.7

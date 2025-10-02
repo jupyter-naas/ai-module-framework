@@ -1,0 +1,16 @@
+services:
+  simple-agent:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_URL=http://host.docker.internal:11434
+    restart: unless-stopped
+
+networks:
+  abi-network:
+    driver: bridge
+
+models:
+  primary-llm:
+    model: ai/qwen3

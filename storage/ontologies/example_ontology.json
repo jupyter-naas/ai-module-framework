@@ -1,0 +1,73 @@
+{
+  "ontology": {
+    "name": "Company Knowledge Base",
+    "version": "1.0",
+    "description": "A simple ontology for company structure and processes",
+    "classes": {
+      "Person": {
+        "description": "A human being",
+        "properties": ["name", "email", "department", "role"],
+        "subclasses": ["Employee", "Manager", "CEO"]
+      },
+      "Employee": {
+        "description": "A person who works for the company",
+        "properties": ["employee_id", "salary", "start_date"],
+        "parent": "Person"
+      },
+      "Manager": {
+        "description": "An employee who manages other employees",
+        "properties": ["team_size", "direct_reports"],
+        "parent": "Employee"
+      },
+      "Department": {
+        "description": "An organizational unit within the company",
+        "properties": ["name", "budget", "head_count"],
+        "subclasses": ["Engineering", "Marketing", "Sales"]
+      },
+      "Project": {
+        "description": "A work initiative with specific goals",
+        "properties": ["name", "description", "start_date", "end_date", "status"],
+        "relationships": {
+          "managed_by": "Manager",
+          "belongs_to": "Department"
+        }
+      }
+    },
+    "instances": {
+      "john_doe": {
+        "type": "Manager",
+        "name": "John Doe",
+        "email": "john.doe@company.com",
+        "department": "Engineering",
+        "employee_id": "EMP001",
+        "team_size": 5
+      },
+      "engineering_dept": {
+        "type": "Department",
+        "name": "Engineering",
+        "budget": 1000000,
+        "head_count": 25
+      },
+      "ai_project": {
+        "type": "Project",
+        "name": "AI Module Framework",
+        "description": "Building an AI module framework for the company",
+        "status": "active",
+        "managed_by": "john_doe",
+        "belongs_to": "engineering_dept"
+      }
+    },
+    "relationships": {
+      "works_in": {
+        "description": "A person works in a department",
+        "domain": "Person",
+        "range": "Department"
+      },
+      "manages": {
+        "description": "A manager manages a project",
+        "domain": "Manager",
+        "range": "Project"
+      }
+    }
+  }
+}
