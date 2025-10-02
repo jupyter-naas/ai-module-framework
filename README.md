@@ -71,8 +71,8 @@ The AI agent is designed with **strict ontology boundaries**:
 
 ## 📁 Storage
 
-- `storage/ontologies/` - Persistent ontology storage
-- `storage/ontologies/example_ontology.json` - Sample company knowledge base
+- `storage/` - Persistent ontology storage
+- `storage/example_ontology.json` - Sample company knowledge base
 
 ## 🔧 Requirements
 

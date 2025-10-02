@@ -84,7 +84,7 @@ async def get_ontology_context():
 async def list_ontologies():
     """List available ontologies in storage"""
     import os
-    storage_path = "/app/storage/ontologies"
+        storage_path = "/app/storage"
     ontologies = []
     
     if os.path.exists(storage_path):
@@ -98,7 +98,7 @@ async def list_ontologies():
 async def load_ontology_from_storage(request: ChatRequest):
     """Load an ontology from storage by filename"""
     try:
-        file_path = f"/app/storage/ontologies/{request.message}"
+            file_path = f"/app/storage/{request.message}"
         success = ontology_loader.load_ontology(file_path)
         
         if success:
